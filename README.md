@@ -56,7 +56,7 @@ Authorization: Bearer your_secure_token
     "vendor": "anthropic",
     "locale": "en-US",
     "industry": "Plumbing",
-    "definition": "your_base_definition_here"
+    "definition": "{\"templates\": [...], \"products\": [...], ...}"
 }
 ```
 
