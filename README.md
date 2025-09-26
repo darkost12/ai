@@ -35,7 +35,7 @@ The server will start on port 5000 by default (can be changed in `.env` file).
 ### Process Definition
 
 ```
-POST /process
+POST /definition
 ```
 
 Processes a definition template with language and industry customization.
@@ -53,17 +53,17 @@ Authorization: Bearer your_secure_token
 
 ```json
 {
-    "vendor": "anthropic",
+    "provider": "anthropic",
     "locale": "en-US",
     "industry": "Plumbing",
     "definition": "{\"templates\": [...], \"products\": [...], ...}"
 }
 ```
 
-- `vendor`: The AI vendor to use for processing. Either `anthropic` or `google`.
+- `provider`: The AI vendor to use for processing. Either `anthropic` or `google`.
 - `locale`: The locale code for language. Supported values: `en-US`, `ru`, `es-ES`.
 - `industry`: The industry to customize the definition for.
-- `definition`: The base definition string to process.
+- `definition`: The base definition string to process (optional).
 
 #### Response
 
@@ -100,13 +100,13 @@ The API returns appropriate HTTP status codes and error messages:
 ## Example Request with cURL
 
 ```bash
-curl -X POST http://localhost:5000/process \
+curl -X POST http://localhost:5000/definition \
   -H "Authorization: Bearer your_secure_token" \
   -H "Content-Type: application/json" \
   -d '{
-    "vendor": "anthropic",
+    "provider": "anthropic",
     "locale": "en-US",
     "industry": "Plumbing",
-    "definition": "your_base_definition_here"
+    "definition": "base definition if needed"
   }'
 ```
